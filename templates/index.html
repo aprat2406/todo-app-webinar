@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<h2> Todo App </h2>
+<h2>🚀 Todo App (No DB Demo)</h2>
 
 <form method="POST">
     <input type="text" name="content" placeholder="Enter task..." required>
@@ -34,10 +34,14 @@
 
 {% for todo in todos %}
     <div class="todo">
-        {{ todo.content }}
-        <a href="/delete/{{ todo.id }}">❌</a>
+        {{ todo }}
+        <a href="/delete/{{ loop.index0 }}">❌</a>
     </div>
 {% endfor %}
+
+<p style="margin-top:20px; color:gray;">
+⚠️ Note: Data resets on redeploy (no database)
+</p>
 
 </body>
 </html>
