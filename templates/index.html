@@ -2,28 +2,10 @@
 <html>
 <head>
     <title>Todo App Demo</title>
-    <style>
-        body {
-            font-family: Arial;
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-        }
-        input {
-            padding: 10px;
-            width: 70%;
-        }
-        button {
-            padding: 10px;
-        }
-        .todo {
-            margin-top: 10px;
-        }
-    </style>
 </head>
 <body>
 
-<h2>🚀 Todo App (No DB Demo)</h2>
+<h2>🚀 Todo App Demo</h2>
 
 <form method="POST">
     <input type="text" name="content" placeholder="Enter task..." required>
@@ -32,16 +14,20 @@
 
 <hr>
 
-{% for todo in todos %}
-    <div class="todo">
-        {{ todo }}
-        <a href="/delete/{{ loop.index0 }}">❌</a>
-    </div>
-{% endfor %}
+<h3>Tasks:</h3>
 
-<p style="margin-top:20px; color:gray;">
-⚠️ Note: Data resets on redeploy (no database)
-</p>
+{% if todos %}
+    <ul>
+    {% for todo in todos %}
+        <li>
+            {{ todo }}
+            <a href="/delete/{{ loop.index0 }}">❌</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks yet</p>
+{% endif %}
 
 </body>
 </html>
