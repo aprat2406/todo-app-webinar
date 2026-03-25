@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App Demo</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 70%;
+        }
+        button {
+            padding: 10px;
+        }
+        .todo {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2> Todo App </h2>
+
+<form method="POST">
+    <input type="text" name="content" placeholder="Enter task..." required>
+    <button type="submit">Add</button>
+</form>
+
+<hr>
+
+{% for todo in todos %}
+    <div class="todo">
+        {{ todo.content }}
+        <a href="/delete/{{ todo.id }}">❌</a>
+    </div>
+{% endfor %}
+
+</body>
+</html>
